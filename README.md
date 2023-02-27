@@ -9,23 +9,23 @@ HttpPort = :3000
 
 [mysql]
 Db = mysql
-DbHost = 127.0.0.1
+DbHost = 
 # mysql ip地址
-DbPort = 3306
+DbPort = 
 # mysql 端口号
-DbUser = root
+DbUser = 
 # mysql 用户名
-DbPassWord = 123456
+DbPassWord = 
 # mysql 密码
-DbName = kilikili
+DbName = 
 # mysql 名字
 
 [redis]
 RedisDb = redis
-RedisAddr = localhost:6379
+RedisAddr = 
 # redis ip地址和端口号
 RedisPw =
 # redis 密码
-RedisDbName = 1
+RedisDbName = 
 # redis 名字
 ```
