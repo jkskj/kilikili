@@ -29,3 +29,5 @@ RedisPw =
 RedisDbName = 
 # redis 名字
 ```
+##接口文档
+https://www.apifox.cn/apidoc/shared-2e6b7965-9e4a-4c17-b7f6-1e6855871ef1
