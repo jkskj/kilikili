@@ -7,13 +7,14 @@ import (
 )
 
 type AdminService struct {
-	Uid         uint  `form:"uid"json:"uid"`
+	Uid         uint  `form:"uid" json:"uid"`
 	Vid         uint  `form:"vid" json:"vid"`
 	Pass        int64 `form:"pass" json:"pass"`
-	CommentType int64 `form:"comment_type"json:"comment_type"`
+	CommentType int64 `form:"comment_type" json:"comment_type"`
 	Cid         int64 `form:"cid" json:"cid"`
 }
 
+// Block 拉黑用户
 func (service *AdminService) Block() serializer.Response {
 	var user model.User
 	var count int
@@ -33,6 +34,8 @@ func (service *AdminService) Block() serializer.Response {
 		Msg:    "已拉黑用户",
 	}
 }
+
+// Examine 获取审核视频
 func (service *AdminService) Examine() serializer.Response {
 	var video model.Video
 	var user model.User
@@ -54,6 +57,8 @@ func (service *AdminService) Examine() serializer.Response {
 		Msg:    e.GetMsg(code),
 	}
 }
+
+// IsPass 返回审核结果
 func (service *AdminService) IsPass() serializer.Response {
 	var video model.Video
 	var user model.User
@@ -85,6 +90,8 @@ func (service *AdminService) IsPass() serializer.Response {
 		Msg:    e.GetMsg(code),
 	}
 }
+
+// Delete 删除评论
 func (service *AdminService) Delete() serializer.Response {
 	var err error
 	code := e.SUCCESS

@@ -7,11 +7,12 @@ import (
 )
 
 type ReplyService struct {
-	ReplyType int64  `form:"reply_type"json:"reply_type"` //判断是对评论的回复还是对回复的回复
-	ReplyId   uint   `form:"reply_id"json:"reply_id"`     //回复评论的id
-	Content   string `form:"content"json:"content"`       //评论内容
+	ReplyType int64  `form:"reply_type" json:"reply_type"` //判断是对评论的回复还是对回复的回复
+	ReplyId   uint   `form:"reply_id" json:"reply_id"`     //回复评论的id
+	Content   string `form:"content" json:"content"`       //评论内容
 }
 
+// Create 上传回复
 func (service *ReplyService) Create(uid uint, vid string) serializer.Response {
 	var user model.User
 	model.DB.First(&user, uid)

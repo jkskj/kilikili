@@ -7,10 +7,11 @@ import (
 )
 
 type InteractionService struct {
-	Vid  uint  `form:"vid"json:"vid"`   //视频id
-	Type int64 `form:"type"json:"type"` //互动类型
+	Vid  uint  `form:"vid" json:"vid"`   //视频id
+	Type int64 `form:"type" json:"type"` //互动类型
 }
 
+// Interact 互动
 func (service *InteractionService) Interact(uid uint) serializer.Response {
 	code := e.SUCCESS
 	var interaction model.Interaction
@@ -63,6 +64,8 @@ func (service *InteractionService) Interact(uid uint) serializer.Response {
 		Msg:    e.GetMsg(code),
 	}
 }
+
+// Cancel 取消互动
 func (service *InteractionService) Cancel(uid uint) serializer.Response {
 	code := e.SUCCESS
 	var interaction model.Interaction

@@ -14,7 +14,7 @@ type UserService struct {
 	Email       string `form:"email" json:"email" `
 	Avatar      string `form:"avatar" json:"avatar"`
 	NewPassword string `form:"new_password" json:"new_password"`
-	Role        int64  `form:"role"json:"role"`
+	Role        int64  `form:"role" json:"role"`
 }
 
 // Register 注册方法
@@ -113,6 +113,8 @@ func (service *UserService) Login() serializer.Response {
 		Msg: e.GetMsg(code),
 	}
 }
+
+// ChangePersonal 更改个人资料
 func (service *UserService) ChangePersonal(uid uint) serializer.Response {
 	code := e.SUCCESS
 	var user model.User
@@ -135,6 +137,7 @@ func (service *UserService) ChangePersonal(uid uint) serializer.Response {
 	}
 }
 
+// ChangePassword 更改密码
 func (service *UserService) ChangePassword(uid uint) serializer.Response {
 	code := e.SUCCESS
 	var user model.User

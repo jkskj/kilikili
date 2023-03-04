@@ -8,6 +8,7 @@ import (
 	"net/http"
 )
 
+// PostVideo 上传视频
 func PostVideo(c *gin.Context) {
 	var createVideo service.VideoService
 	chaim, _ := middleware.ParseToken(c.GetHeader("Authorization"))
@@ -21,6 +22,8 @@ func PostVideo(c *gin.Context) {
 	}
 
 }
+
+// WatchVideo 观看视频
 func WatchVideo(c *gin.Context) {
 	var watchVideo service.VideoService
 	err := c.ShouldBind(&watchVideo)

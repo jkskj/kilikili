@@ -7,9 +7,10 @@ import (
 )
 
 type CommentService struct {
-	Content string `form:"content"json:"content"` //评论内容
+	Content string `form:"content" json:"content"` //评论内容
 }
 
+// Create 上传评论
 func (service *CommentService) Create(uid uint, vid string) serializer.Response {
 	var user model.User
 	model.DB.First(&user, uid)
@@ -39,6 +40,8 @@ func (service *CommentService) Create(uid uint, vid string) serializer.Response 
 		Msg:    e.GetMsg(code),
 	}
 }
+
+// List 获取评论
 func (service *CommentService) List(vid string) serializer.Response {
 	var comments []model.Comment
 	var user model.User
@@ -74,6 +77,8 @@ func (service *CommentService) List(vid string) serializer.Response {
 	}
 	return serializer.BuildListResponse(serializer.BuildComments(comments), uint(count))
 }
+
+// Find 查找回复
 func Find(replies []model.Reply) []model.Reply {
 	var user model.User
 	for i := 0; i < len(replies); i++ {

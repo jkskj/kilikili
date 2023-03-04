@@ -7,10 +7,11 @@ import (
 )
 
 type BulletCommentService struct {
-	Content string `form:"content"json:"content"`   //弹幕内容
-	AddTime string `json:"add_time"form:"add_time"` //弹幕出现在视频的时间
+	Content string `form:"content" json:"content"`   //弹幕内容
+	AddTime string `form:"add_time" json:"add_time"` //弹幕出现在视频的时间
 }
 
+// Create 上传弹幕
 func (service *BulletCommentService) Create(uid uint, vid string) serializer.Response {
 	var user model.User
 	model.DB.First(&user, uid)
@@ -39,6 +40,8 @@ func (service *BulletCommentService) Create(uid uint, vid string) serializer.Res
 		Msg:    e.GetMsg(code),
 	}
 }
+
+// List 获取弹幕
 func (service *BulletCommentService) List(vid string) serializer.Response {
 	var bulletComment []model.BulletComment
 	count := 0

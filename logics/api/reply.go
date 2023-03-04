@@ -8,6 +8,7 @@ import (
 	"net/http"
 )
 
+// PostReply 上传回复
 func PostReply(c *gin.Context) {
 	var reply service.ReplyService
 	chaim, _ := middleware.ParseToken(c.GetHeader("Authorization"))

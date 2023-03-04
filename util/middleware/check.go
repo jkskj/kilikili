@@ -6,6 +6,7 @@ import (
 	"kilikili/util/e"
 )
 
+// Check 检查是否是管理员
 func Check() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		var code int

@@ -7,6 +7,7 @@ import (
 	"kilikili/util/middleware"
 )
 
+// UserRegister 用户注册
 func UserRegister(c *gin.Context) {
 	var userRegister service.UserService
 	//绑定结构体
@@ -21,6 +22,7 @@ func UserRegister(c *gin.Context) {
 	}
 }
 
+// UserLogin 用户登录
 func UserLogin(c *gin.Context) {
 	var userLogin service.UserService
 	code := e.SUCCESS
@@ -33,6 +35,8 @@ func UserLogin(c *gin.Context) {
 		c.JSON(code, err)
 	}
 }
+
+// UserChangePersonal 用户更改个人信息
 func UserChangePersonal(c *gin.Context) {
 	var userChange service.UserService
 	code := e.SUCCESS
@@ -47,6 +51,7 @@ func UserChangePersonal(c *gin.Context) {
 	}
 }
 
+// UserChangePassword 用户更改密码
 func UserChangePassword(c *gin.Context) {
 	var userChange service.UserService
 	code := e.SUCCESS

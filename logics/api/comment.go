@@ -8,6 +8,7 @@ import (
 	"net/http"
 )
 
+// 上传评论
 func PostComment(c *gin.Context) {
 	var comment service.CommentService
 	chaim, _ := middleware.ParseToken(c.GetHeader("Authorization"))
@@ -20,6 +21,8 @@ func PostComment(c *gin.Context) {
 		logging.Error(err)
 	}
 }
+
+// 获取评论
 func ListComment(c *gin.Context) {
 	var comment service.CommentService
 	err := c.ShouldBind(&comment)

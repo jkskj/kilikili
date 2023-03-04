@@ -5,7 +5,6 @@ const (
 	ERROR         = 500
 	InvalidParams = 400
 
-	// ErrorExistUser 成员错误
 	ErrorExistUser      = 102
 	ErrorNotExistUser   = 103
 	ErrorFailEncryption = 106

@@ -8,6 +8,7 @@ import (
 	"net/http"
 )
 
+// PostBullet 上传弹幕
 func PostBullet(c *gin.Context) {
 	var comment service.BulletCommentService
 	chaim, _ := middleware.ParseToken(c.GetHeader("Authorization"))
@@ -20,6 +21,8 @@ func PostBullet(c *gin.Context) {
 		logging.Error(err)
 	}
 }
+
+// ListBullet 获取弹幕
 func ListBullet(c *gin.Context) {
 	var comment service.BulletCommentService
 	err := c.ShouldBind(&comment)

@@ -12,6 +12,7 @@ type VideoService struct {
 	Content string `form:"content" json:"content"`
 }
 
+// Create 上传视频
 func (service *VideoService) Create(id uint) serializer.Response {
 	var user model.User
 	model.DB.First(&user, id)
@@ -39,6 +40,8 @@ func (service *VideoService) Create(id uint) serializer.Response {
 		Msg:    e.GetMsg(code),
 	}
 }
+
+// Watch 观看视频
 func (service *VideoService) Watch(vid string) serializer.Response {
 	var video model.Video
 	var user model.User

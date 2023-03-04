@@ -8,6 +8,7 @@ import (
 	"net/http"
 )
 
+// Interact 互动
 func Interact(c *gin.Context) {
 	var interaction service.InteractionService
 	chaim, _ := middleware.ParseToken(c.GetHeader("Authorization"))
@@ -20,6 +21,8 @@ func Interact(c *gin.Context) {
 		logging.Error(err)
 	}
 }
+
+// CancelInteraction 取消互动
 func CancelInteraction(c *gin.Context) {
 	var interaction service.InteractionService
 	chaim, _ := middleware.ParseToken(c.GetHeader("Authorization"))

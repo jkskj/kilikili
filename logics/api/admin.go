@@ -7,6 +7,7 @@ import (
 	"net/http"
 )
 
+// BlockUser 拉黑用户
 func BlockUser(c *gin.Context) {
 	var admin service.AdminService
 	err := c.ShouldBind(&admin)
@@ -18,6 +19,8 @@ func BlockUser(c *gin.Context) {
 		logging.Error(err)
 	}
 }
+
+// ExamineVideo 获取审核视频
 func ExamineVideo(c *gin.Context) {
 	var admin service.AdminService
 	err := c.ShouldBind(&admin)
@@ -29,6 +32,8 @@ func ExamineVideo(c *gin.Context) {
 		logging.Error(err)
 	}
 }
+
+// IsPassVideo 返回审核结果
 func IsPassVideo(c *gin.Context) {
 	var admin service.AdminService
 	err := c.ShouldBind(&admin)
@@ -40,6 +45,8 @@ func IsPassVideo(c *gin.Context) {
 		logging.Error(err)
 	}
 }
+
+// DeleteComment 删除评论
 func DeleteComment(c *gin.Context) {
 	var admin service.AdminService
 	err := c.ShouldBind(&admin)
