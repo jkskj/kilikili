@@ -1,8 +1,6 @@
 package config
 
 import (
-	//"3/cache"
-	//"3/model"
 	"fmt"
 	"gopkg.in/ini.v1"
 	"kilikili/cache"

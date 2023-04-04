@@ -46,7 +46,7 @@ func NewRouter() *gin.Engine {
 			//取消评论
 			v1.PUT("/video/interaction", api.CancelInteraction)
 
-			admin := v1.Group("/admin")
+			admin := authed.Group("/admin")
 
 			admin.Use(middleware.Check())
 			{

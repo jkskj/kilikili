@@ -1,7 +1,6 @@
 package middleware
 
 import (
-	"fmt"
 	"github.com/gin-gonic/gin"
 	"kilikili/util/e"
 )
@@ -17,7 +16,6 @@ func Check() gin.HandlerFunc {
 		if claims.Authority != 1 {
 			code = e.ErrorNotAdmin
 		}
-		fmt.Println(claims.Id, claims.Authority)
 		if code != e.SUCCESS {
 			c.JSON(400, gin.H{
 				"status": code,
